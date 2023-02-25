@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="chat.js"></script>
+    <title>Chat de atendimento</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div id="headerChat">
+          <h4>Atendimento on-line</h4>
+          <img src="src/mododarck.png" onclick="toggleDarkMode()" class="btn" />
+        </div>
+      </header>
+      <article id="chat"></article>
+      <article>
+        <div id="sendArea">
+          <input id="msg"  type="text" />
+          <button onclick="sendMsg()">Enviar</button>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
