@@ -3,6 +3,14 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    height: 100vh;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 80%;
   }
   
   /* Define o estilo para o cabeçalho */
@@ -10,6 +18,7 @@ body, html {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    border-radius: 5px 5px 0px 0px;
   }
   
   #headerChat {
@@ -26,17 +35,16 @@ body, html {
   
   /* Define o estilo para o chat */
   #chat {
-    height: 300px;
+    height: 100%;
     border: 1px solid #ccc;
-    overflow-y: scroll;
+    overflow-y: none;
     padding: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 0px 0px 5px 5px;
   }
   
   /* Define o estilo para a caixa de entrada de texto */
   input[type="text"] {
-    width: 77%;
+    width: 80%;
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
@@ -47,6 +55,7 @@ body, html {
   /* Define o estilo para o botão "Enviar" */
   button {
     padding: 10px;
+    width: 15%;
     background-color: #333;
     color: #fff;
     border: none;
@@ -64,22 +73,43 @@ body, html {
 
   #sendArea{
     padding: 10px;
-    margin: auto;
+    margin: 0;
+    padding: 0;
   }
   button{
     margin-right: 0px;
   }
 
   .mymsg{
-
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
+    border: none;
   }
   .sent-msg {
     text-align: right;
     padding-right: 10px;
-    background-color: green;
+    background-color: #343838;
     display: block;
     size: auto;
+    width: 50%;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    color: #fff;
+  }
+
+  .msgMySent{
+    border-radius: 18px 18px 0px 15px;
+  }
+
+  .msgSystemSent{
+    border-radius: 18px 18px 15px 0px;
+  }
+
+  .msgSystem {
+    display: flex;
+    width: 100%;
   }
 
 
@@ -88,25 +118,25 @@ body, html {
 
 
   /* Define as cores do modo escuro */
-body.dark-mode {
+body.theme {
     background-color: #1a1a1a;
     color: #fff;
 }
 
 /* Estiliza o header do chat no modo escuro */
-#headerChat.dark-mode {
+#headerChat.theme {
     background-color: #333;
     color: #fff;
 }
 
 /* Estiliza as mensagens no modo escuro */
-.chat-msg.dark-mode {
+.chat-msg.theme {
     background-color: #333;
     color: #fff;
 }
 
 /* Define a cor do texto de entrada no modo escuro */
-#msg.dark-mode {
+#msg.theme {
     background-color: #333;
     color: #fff;
 }
@@ -116,17 +146,17 @@ body.dark-mode {
 }
 
 /* Estiliza o botão "Enviar" no modo escuro */
-button.dark-mode {
+button.theme {
     background-color: #333;
     color: #fff;
 }
 
 /* Alterna para o modo escuro */
-body.dark-mode #chat,
-body.dark-mode #headerChat,
-body.dark-mode .chat-msg,
-body.dark-mode #msg,
-body.dark-mode button {
+body.theme #chat,
+body.theme #headerChat,
+body.theme .chat-msg,
+body.theme #msg,
+body.theme button {
     color: #fff;
 }
 
