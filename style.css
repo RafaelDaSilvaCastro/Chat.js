@@ -97,6 +97,7 @@ body, html {
     align-self: flex-end;
     justify-content: flex-end;
     color: #fff;
+    word-break: break-all;
   }
 
   .msgMySent{

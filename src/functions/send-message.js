@@ -1,15 +1,16 @@
 const arrayMsg = []
-const arrayMsgSystem = ["Bem vindo á nossa central de atendimento"]
+const arrayMsgSystem = []
+const elements = [message("Bem vindo á nossa central de atendimento","SYSTEM")]
 
 function sendMsg() {
   const msg = document.getElementById('msg')
   if(msg.value != ''){
     let bodyChat = document.getElementById('chat')
 
-    arrayMsg.push(msg.value)
-    arrayMsgSystem.push("No momento nosso sistema não está disponível")
+    elements.push(message(msg.value,"USER"))
+    elements.push(message("No momento nosso sistema não está disponível","SYSTEM"))
 
-      bodyChat.innerHTML = [...message(arrayMsg,"USER"),...message(arrayMsgSystem,"SYSTEM")]
+    bodyChat.innerHTML = elements
   msg.value = '' 
   }
 
@@ -28,13 +29,8 @@ function messageBaseSystem(message){
   </div>`
 }
 
-function message(array, type){
-    if(array.length){
-        return array.map((message)=>{
-            return type == "USER" ? messageBaseUser(message) : messageBaseSystem(message)
-        })
-    }
-    return []
+function message(message, type){
+    return type == "USER" ? messageBaseUser(message) : messageBaseSystem(message)
 }
 
 
