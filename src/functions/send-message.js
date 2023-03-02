@@ -1,3 +1,9 @@
+/**
+ * Nomes: Rafael da Silva Castro & Vito Loch Mafei
+ * 
+ */
+
+
 const arrayMsg = []
 const arrayMsgSystem = []
 const elements = []
