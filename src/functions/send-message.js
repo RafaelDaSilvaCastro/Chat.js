@@ -1,43 +1,62 @@
 /**
  * Nomes: Rafael da Silva Castro & Vito Loch Mafei
- * 
+ *
  */
-
-
-const arrayMsg = []
-const arrayMsgSystem = []
-const elements = []
 
 function sendMsg() {
   const msg = document.getElementById('msg')
   if (msg.value != '') {
     let bodyChat = document.getElementById('chat')
 
-    elements.push(message(msg.value, 'USER'))
-    elements.push(message('Olá!', 'SYSTEM'))
-    elements.push(
-      message('No momento nosso sistema não está disponível', 'SYSTEM')
+    const MessageUser = document.createElement('div')
+    MessageUser.classList.add('mymsg')
+    const ContentMessageUser = document.createElement('div')
+    ContentMessageUser.classList.add('sent-msg')
+    ContentMessageUser.classList.add('msgMySent')
+
+    ContentMessageUser.innerHTML = newMessageBaaseUser(msg.value)
+    MessageUser.appendChild(ContentMessageUser)
+    bodyChat.appendChild(MessageUser)
+
+    let MessageBySystem = document.createElement('div')
+    MessageBySystem.classList.add('msgSystem')
+    let ContentMessageBySystem = document.createElement('div')
+    ContentMessageBySystem.classList.add('sent-msg')
+    ContentMessageBySystem.classList.add('msgSystemSent')
+
+    ContentMessageBySystem.innerHTML = newMessageBaseSystem('Olá!')
+    MessageBySystem.appendChild(ContentMessageBySystem)
+    bodyChat.appendChild(MessageBySystem)
+
+    MessageBySystem = document.createElement('div')
+    MessageBySystem.classList.add('msgSystem')
+
+    ContentMessageBySystem = document.createElement('div')
+    ContentMessageBySystem.classList.add('sent-msg')
+    ContentMessageBySystem.classList.add('msgSystemSent')
+    ContentMessageBySystem.innerHTML = newMessageBaseSystem(
+      'No momento nosso sistema não está disponível'
     )
 
-    bodyChat.innerHTML = elements.join('')
+    MessageBySystem.appendChild(ContentMessageBySystem)
+    bodyChat.appendChild(MessageBySystem)
+
     msg.value = ''
 
     bodyChat.lastChild.scrollIntoView({ behavior: 'smooth' })
   }
 }
 
-function messageBaseUser(message) {
-  return `<div class="mymsg">
-    <div class="sent-msg msgMySent"><p><strong>Você</strong><br>${message}</p></div>
-  </div><br>`
+function newMessageBaaseUser(message) {
+  return `<p><strong>Você</strong><br>${message}<br></p>`
 }
 
-function messageBaseSystem(message) {
-  return `<div class="msgSystem">
-    <div class="sent-msg msgSystemSent"><p><strong>Atendimento</strong><br>${message}</p></div>
-  </div><br>`
+function newMessageBaseSystem(message) {
+  return `<p><strong>Atendimento</strong><br>${message}</p>`
 }
 
 function message(message, type) {
-  return type == 'USER' ? messageBaseUser(message) : messageBaseSystem(message)
+  return type == 'USER'
+    ? newMessageBaaseUser(message)
+    : newMessageBaseSystem(message)
 }

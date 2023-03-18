@@ -76,6 +76,7 @@ body, html {
     padding: 10px;
     margin: 0;
     padding: 0;
+    display: flex;
   }
   button{
     margin-right: 0px;
@@ -86,6 +87,7 @@ body, html {
     justify-content: flex-end;
     width: 100%;
     border: none;
+    margin:10px;
   }
   .sent-msg {
     text-align: right;
@@ -112,6 +114,7 @@ body, html {
   .msgSystem {
     display: flex;
     width: 100%;
+    margin: 10px;
   }
 
 
