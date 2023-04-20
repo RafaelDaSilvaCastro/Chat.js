@@ -3,7 +3,7 @@
 <template>
   <HeaderComponent/>
   <div id="chat">
-        <article id="massages">
+        <article id="massages"  ref="chatBody">
             <section v-for="(message, index) in messages"  :key="index">
             <MessageComponent :message="message" />
             </section>
@@ -22,12 +22,18 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
 import MessageComponent from '@/components/MessageComponent.vue';
 import { ref } from 'vue';
 
+const hisMessage = document.querySelector('#massages')
+
 const messages = ref([{value: "Bem Vindo ao nosso sistema",type:"system"}])
 let message = ref("")
+const chatBody = ref()
 
 function sendMessage(){
   newMessage(message.value)
-    message.value = ""
+  message.value = ""
+  setTimeout(() => {
+        chatBody.value.scrollTop = chatBody.value.scrollHeight
+      }, 50)
 }
 
 function newMessage(message: string){
@@ -50,6 +56,7 @@ function newMessage(message: string){
     justify-content: center;
     width: 100%;
     height: 85%;
+    
 
 
 }
@@ -60,6 +67,7 @@ function newMessage(message: string){
     padding: 10px;
     border-radius: 0px 0px 5px 5px;
     background-color: rgb(255, 254, 254);
+    overflow: auto;
 }
 #content{
     display: flex;
