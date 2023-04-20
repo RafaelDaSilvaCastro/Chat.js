@@ -1,33 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="src/functions/send-message.js"></script>
-    <script src="src/functions/change-theme.js"></script>
-    <title>Chat de atendimento</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
   </head>
   <body>
-    <main>
-      <header>
-        <div id="headerChat">
-          <h4>Atendimento on-line</h4>
-          <img
-            src="src/assets/theme/dark.png"
-            onclick="changeTheme()"
-            class="btn"
-          />
-        </div>
-      </header>
-      <article id="chat"></article>
-      <article>
-        <div id="sendArea">
-          <input id="msg" type="text" />
-          <button onclick="sendMsg()">Enviar</button>
-        </div>
-      </article>
-    </main>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
